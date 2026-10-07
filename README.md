@@ -53,7 +53,7 @@ int main(){
     return 0;
 }
 ```
-
+![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20085937.png)
 
 Problem 2: Finding Complexity using Counter method
 
