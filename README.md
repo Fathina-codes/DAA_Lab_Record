@@ -202,7 +202,7 @@ int main(){
     return 0;
 }
 ```
-![output]()
+![output](https://github.com/Fathina-codes/DAA_Lab_Record/tree/main)
 
 Problem 5: Finding Complexity using counter method
 
@@ -245,4 +245,4 @@ int main(){
     return 0;
 }
 ```
-![output]()
+![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20150758.png)
