@@ -1067,10 +1067,9 @@ Element x - That is repeated
 
 For example:
 
-Input	Result
-5
-1 1 2 3 4
-1
+| Input | Result |
+| :--- | :--- |
+| 5<br>1 1 2 3 4 | 1 |
 ```c
 #include<stdio.h>
 int main(){
@@ -1096,5 +1095,331 @@ int main(){
     return 0;
 }
 ```
+## 2-Finding Duplicates-O(n) Time Complexity,O(1) Space Complexity
 
+Find Duplicate in Array.
+
+Given a read only array of n integers between 1 and n, find one number that repeats.
+
+Input Format:
+
+First Line - Number of elements
+
+n Lines - n Elements
+
+Output Format:
+Element x - That is repeated
+
+For example:
+
+| Input | Result |
+| :--- | :--- |
+| 5<br>1 1 2 3 4 | 1 |
+
+```c
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+    int n;
+    scanf("%d",&n);
+    int arr[n];
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+    int slow=arr[0];
+    int fast=arr[0];
+    do{
+        slow=arr[slow];
+        fast=arr[arr[fast]];
+    }while(slow!=fast);
+    slow=arr[0];
+    while(slow!=fast){
+        slow=arr[slow];
+        fast=arr[fast];
+    }
+    printf("%d",slow);
+    return 0;
+}
+```
+## 3-Print Intersection of 2 sorted arrays-O(m*n)Time Complexity,O(1) Space Complexity
+Find the intersection of two sorted arrays.
+
+OR in other words,
+
+Given 2 sorted arrays, find all the elements which occur in both the arrays. 
+
+Input Format
+
+·       The first line contains T, the number of test cases. Following T lines contain:
+
+1.     Line 1 contains N1, followed by N1 integers of the first array
+
+2.     Line 2 contains N2, followed by N2 integers of the second array
+
+Output Format
+
+The intersection of the arrays in a single line
+
+Example
+
+Input:
+
+1
+
+3 10 17 57
+
+6 2 7 10 15 57 246
+
+Output:
+
+10 57
+
+Input:
+
+1
+
+6 1 2 3 4 5 6
+
+2 1 6
+
+Output:
+
+1 6
+
+
+For example:
+
+| Input | Result |
+| :--- | :--- |
+| 1<br>3 10 17 57<br>6<br>2 7 10 15 57 246 | 10 57 |
+```c
+#include<stdio.h>
+int main(){
+    int t;
+    scanf("%d",&t);
+    while (t--){
+    int n,m;
+    scanf("%d",&n);
+    int arr[n];
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+    scanf("%d",&m);
+    int brr[m];
+    for(int i=0;i<m;i++){
+        scanf("%d",&brr[i]);
+    }
+    int f=1;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            if(arr[i]==brr[j]){
+                if(!f){
+                    printf(" ");
+                }
+                printf("%d",arr[i]);
+                f=0;
+                break;
+            }
+        }
+    }
+    printf("\n");
+    
+    }
+    
+    return 0;
+}
+```
+## 4-Print Intersection of 2 sorted arrays-O(m*n)Time Complexity,O(1) Space Complexity
+Find the intersection of two sorted arrays.
+
+OR in other words,
+
+Given 2 sorted arrays, find all the elements which occur in both the arrays. 
+
+Input Format
+
+·       The first line contains T, the number of test cases. Following T lines contain:
+
+1.     Line 1 contains N1, followed by N1 integers of the first array
+
+2.     Line 2 contains N2, followed by N2 integers of the second array
+
+Output Format
+
+The intersection of the arrays in a single line
+
+Example
+
+Input:
+
+1
+
+3 10 17 57
+
+6 2 7 10 15 57 246
+
+Output:
+
+10 57
+
+Input:
+
+1
+
+6 1 2 3 4 5 6
+
+2 1 6
+
+Output:
+
+1 6
+
+
+For example:
+
+| Input | Result |
+| :--- | :--- |
+| 1<br>3 10 17 57<br>6<br>2 7 10 15 57 246 | 10 57 |
+```c
+#include<stdio.h>
+int main(){
+    int t;
+    scanf("%d",&t);
+    while (t--){
+    int n,m;
+    scanf("%d",&n);
+    int arr[n];
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+    scanf("%d",&m);
+    int brr[m];
+    for(int i=0;i<m;i++){
+        scanf("%d",&brr[i]);
+    }
+    int f=1;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            if(arr[i]==brr[j]){
+                if(!f){
+                    printf(" ");
+                }
+                printf("%d",arr[i]);
+                f=0;
+                break;
+            }
+        }
+    }
+    printf("\n");
+    
+    }
+    
+    return 0;
+}
+```
+
+## 5-Pair with Difference-O(n^2)Time Complexity,O(1) Space Complexity
+Given an array A of sorted integers and another non negative integer k, find if there exists 2 indices i and j such that A[j] - A[i] = k, i != j.
+
+Input Format:
+
+First Line n - Number of elements in an array
+
+Next n Lines - N elements in the array
+
+k - Non - Negative Integer
+
+Output Format:
+1 - If pair exists
+
+0 - If no pair exists
+
+Explanation for the given Sample Testcase:
+
+YES as 5 - 1 = 4
+
+So Return 1.
+
+
+
+
+For example:
+
+| Input | Result |
+| :--- | :--- |
+| 3<br>1 3 5<br>4 | 1 |
+```c
+#include<stdio.h>
+int main(){
+    int n,t;
+    scanf("%d",&n);
+    int arr[n];
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+    scanf("%d",&t);
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            if(arr[j]-arr[i]==t){
+                printf("1");
+                return 0;
+            }
+        }
+    }
+    printf("0");
+    return 0;
+}
+```
+## 6-Pair with Difference-O(n^2)Time Complexity,O(1) Space Complexity
+Given an array A of sorted integers and another non negative integer k, find if there exists 2 indices i and j such that A[j] - A[i] = k, i != j.
+
+Input Format:
+
+First Line n - Number of elements in an array
+
+Next n Lines - N elements in the array
+
+k - Non - Negative Integer
+
+Output Format:
+1 - If pair exists
+
+0 - If no pair exists
+
+Explanation for the given Sample Testcase:
+
+YES as 5 - 1 = 4
+
+So Return 1.
+
+
+
+
+For example:
+
+| Input | Result |
+| :--- | :--- |
+| 3<br>1 3 5<br>4 | 1 |
+```c
+#include<stdio.h>
+int main(){
+    int n,t;
+    scanf("%d",&n);
+    int arr[n];
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+    scanf("%d",&t);
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            if(arr[j]-arr[i]==t){
+                printf("1");
+                return 0;
+            }
+        }
+    }
+    printf("0");
+    return 0;
+}
+```
 
