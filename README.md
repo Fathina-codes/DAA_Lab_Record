@@ -202,9 +202,11 @@ int main(){
     return 0;
 }
 ```
-![output](https://github.com/Fathina-codes/DAA_Lab_Record/tree/main)
+![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20150617.png)
+
 
 Problem 5: Finding Complexity using counter method
+
 
 Convert the following algorithm into a program and find its time complexity using counter method.
 ````markdown
@@ -293,7 +295,7 @@ int main() {
     return 0;
 }
 ```
-![output]()
+![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20151348.png)
 
 
 2-G-Cookies Problem
@@ -389,7 +391,7 @@ int main() {
     return 0;
 }
 ```
-![output]()
+![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20151514.png)
 
 3-G-Burger Problem
 
@@ -444,7 +446,7 @@ int main(){
     return 0;
 }
 ```
-![output]()
+![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20151645.png)
 
 4-G-Array Sum max problem
 
@@ -496,7 +498,7 @@ int main(){
     return 0;
 }
 ```
-![output]()
+![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20153520.png)
 
 5-G-Product of Array elements-Minimum
 Given two arrays array_One[] and array_Two[] of same size N. We need to first rearrange the arrays such that the sum of the product of pairs( 1 element from each) is minimum. That is SUM (A[i] * B[i]) for all i is minimum.
@@ -552,7 +554,7 @@ int main(){
     return 0;
 }
 ```
-![output]()
+![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20153715.png)
 
 
 
