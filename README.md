@@ -799,252 +799,277 @@ int main(){
     return 0;
 }
 ```
-![output]()
-# DYNAMIC PROGRAMMING
-## 1-DP-Playing with Numbers
-Playing with Numbers:
+![output]()# Dynamic Programming
 
+## 1. DP - Playing with Numbers
 
-Ram and Sita are playing with numbers by giving puzzles to each other. Now it was Ram term, so he gave Sita a positive integer ‘n’ and two numbers 1 and 3. He asked her to find the possible ways by which the number n can be represented using 1 and 3.Write any efficient algorithm to find the possible ways.
+### Problem
+Ram and Sita are playing with numbers by giving puzzles to each other. Now it was Ram's turn, so he gave Sita a positive integer `n` and two numbers `1` and `3`. He asked her to find the number of ways by which `n` can be represented using `1` and `3`.
 
-Example 1:
+### Example
+Input: `6`
 
-Input: 6
-Output:6
-Explanation: There are 6 ways to 6 represent number with 1 and 3
-         1+1+1+1+1+1
-         3+3
-         1+1+1+3
-         1+1+3+1
-         1+3+1+1
-         3+1+1+1
-Input Format
-First Line contains the number n
- 
-Output Format
+Output: `6`
 
-Print: The number of possible ways ‘n’ can be represented using 1 and 3
+Explanation:
 
+There are 6 ways to represent 6 using 1 and 3:
 
-Sample Input
- 
+- `1 + 1 + 1 + 1 + 1 + 1`
+- `3 + 3`
+- `1 + 1 + 1 + 3`
+- `1 + 1 + 3 + 1`
+- `1 + 3 + 1 + 1`
+- `3 + 1 + 1 + 1`
+
+### Input Format
+- The first line contains the number `n`.
+
+### Output Format
+- Print the number of possible ways `n` can be represented using `1` and `3`.
+
+### Sample Input
+```text
 6
+```
 
-Sample Output
-
+### Sample Output
+```text
 6
+```
 
- ```c
-#include<stdio.h>
+### C Program
+```c
+#include <stdio.h>
 
-long long  count(int n){
-    if(n<0) return 0;
-    if(n==0 || n==1 || n==2) return 1;
-    long long  dp[n+1];
-    dp[0]=1;
-    dp[1]=1;
-    dp[2]=1;
-    for(int i=3;i<=n;i++){
-        dp[i]=dp[i-1]+dp[i-3];
+long long count(int n) {
+    if (n < 0) return 0;
+    if (n == 0 || n == 1 || n == 2) return 1;
+
+    long long dp[n + 1];
+    dp[0] = 1;
+    dp[1] = 1;
+    dp[2] = 1;
+
+    for (int i = 3; i <= n; i++) {
+        dp[i] = dp[i - 1] + dp[i - 3];
     }
+
     return dp[n];
 }
-int main(){
+
+int main() {
     int n;
-    scanf("%d",&n);
-    printf("%lld",count(n));
+    scanf("%d", &n);
+    printf("%lld", count(n));
     return 0;
 }
 ```
 
 ![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20163042.png)
-## 2-DP-Playing with chessboard
-Playing with Chessboard:
 
+## 2. DP - Playing with Chessboard
 
-Ram is given with an n*n chessboard with each cell with a monetary value. Ram stands at the (0,0), that the position of the top left white rook. He is been given a task to reach the bottom right black rook position (n-1, n-1) constrained that he needs to reach the position by traveling the maximum monetary path under the condition that he can only travel one step right or one step down the board. Help ram to achieve it by providing an efficient DP algorithm.
+### Problem
+Ram is given an `n x n` chessboard, with each cell having a monetary value. Ram stands at cell `(0, 0)`, the top-left white rook. He must reach the bottom-right black rook position `(n - 1, n - 1)` while moving only one step right or one step down at a time. The goal is to find the path with the maximum monetary value.
 
+### Example
+Input:
 
-Example:
-Input
+```text
 3
 1 2 4
 2 3 4
 8 7 1
+```
+
 Output:
+
+```text
 19
+```
 
+### Explanation
+There are 6 possible paths, and the optimal path value is:
 
-Explanation:
-Totally there will be 6 paths among that the optimal is
- Optimal path value:1+2+8+7+1=19
+`1 + 2 + 8 + 7 + 1 = 19`
 
+### Input Format
+- The first line contains the integer `n`.
+- The next `n` lines contain the values of the `n x n` chessboard.
 
-Input Format
-First Line contains the integer n
-The next n lines contain the n*n chessboard values
- 
-Output Format
+### Output Format
+- Print the maximum monetary value of the path.
 
-Print Maximum monetary value of the path
+### C Program
 ```c
-#include<stdio.h>
-int max(int a,int b){
-    return (a>b)? a:b;
+#include <stdio.h>
+
+int max(int a, int b) {
+    return (a > b) ? a : b;
 }
-int main(){
+
+int main() {
     int n;
-    scanf("%d",&n);
+    scanf("%d", &n);
+
     int arr[n][n];
     int brr[n][n];
-    
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            scanf("%d",&arr[i][j]);
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            scanf("%d", &arr[i][j]);
         }
-    }
-    
-    brr[0][0]=arr[0][0];
-    for(int i = 1; i < n; i++){
-        brr[i][0] = brr[i-1][0] + arr[i][0];
     }
 
-    for(int j=1;j<n;j++){
-        brr[0][j]=brr[0][j-1]+arr[0][j];
+    brr[0][0] = arr[0][0];
+    for (int i = 1; i < n; i++) {
+        brr[i][0] = brr[i - 1][0] + arr[i][0];
     }
-    for(int i=1;i<n;i++){
-        for(int j=1;j<n;j++){
-            brr[i][j]=arr[i][j]+max(brr[i-1][j],brr[i][j-1]);
+
+    for (int j = 1; j < n; j++) {
+        brr[0][j] = brr[0][j - 1] + arr[0][j];
+    }
+
+    for (int i = 1; i < n; i++) {
+        for (int j = 1; j < n; j++) {
+            brr[i][j] = arr[i][j] + max(brr[i - 1][j], brr[i][j - 1]);
         }
     }
-    printf("%d\n",brr[n-1][n-1]);
+
+    printf("%d\n", brr[n - 1][n - 1]);
     return 0;
 }
 ```
 
 ![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20163149.png)
-## 3-DP-Longest Common Subsequence
 
-Given two strings find the length of the common longest subsequence(need not be contiguous) between the two.
+## 3. DP - Longest Common Subsequence
 
+### Problem
+Given two strings, find the length of the longest common subsequence (not necessarily contiguous) between them.
 
+### Example
+```text
+s1: ggtabe
+s2: tgatasb
+```
 
-Example:
+The length is `4`.
 
- s1: ggtabe
+### Explanation
+This is solved using dynamic programming.
 
- s2: tgatasb
+### Example Table
+| Input | Result |
+| :--- | :--- |
+| aab<br>azb | 2 |
 
-
-
-
-s1	 	a	g	
-g
-t
-a
-b
- 
-s2	 	
-g
-x	
-t
-x
-a
-y
-b
-
-The length is 4
-
-Solveing it using Dynamic Programming
-
-For example:
-
-Input	Result
-aab
-azb
-2
-
+### C Program
 ```c
-#include<stdio.h>
-#include<string.h>
-int max(int a , int b){
-    return a>b?a:b;
+#include <stdio.h>
+#include <string.h>
+
+int max(int a, int b) {
+    return a > b ? a : b;
 }
-int main(){
-    char a[1000],b[1000];
-    scanf("%s %s",a,b);
-    int n=strlen(a);
-    int m=strlen(b);
-    int dp[n+1][m+1];
-    for(int i=0;i<=n;i++){
-        dp[i][0]=0;
+
+int main() {
+    char a[1000], b[1000];
+    scanf("%s %s", a, b);
+
+    int n = strlen(a);
+    int m = strlen(b);
+    int dp[n + 1][m + 1];
+
+    for (int i = 0; i <= n; i++) {
+        dp[i][0] = 0;
     }
-    for(int i=0;i<=m;i++){
-        dp[0][i]=0;
+
+    for (int i = 0; i <= m; i++) {
+        dp[0][i] = 0;
     }
-    for(int i=1;i<=n;i++){
-        for(int j=1;j<=m;j++){
-            if(a[i-1]==b[j-1]){
-                dp[i][j]=dp[i-1][j-1]+1;
-            }else{
-                dp[i][j]=max(dp[i-1][j],dp[i][j-1]);
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (a[i - 1] == b[j - 1]) {
+                dp[i][j] = dp[i - 1][j - 1] + 1;
+            } else {
+                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
             }
         }
     }
-    printf("%d",dp[n][m]);
+
+    printf("%d", dp[n][m]);
     return 0;
 }
 ```
+
 ![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20163256.png)
-## 4-DP-Longest non-decreasing Subsequence
 
-Problem statement:
+## 4. DP - Longest Non-decreasing Subsequence
 
-Find the length of the Longest Non-decreasing Subsequence in a given Sequence.
+### Problem
+Find the length of the longest non-decreasing subsequence in a given sequence.
 
-Eg:
+### Example
+Input:
 
+```text
+9
+-1 3 4 5 2 2 2 2 3
+```
 
+The subsequence is:
 
-Input:9
+```text
+[-1, 2, 2, 2, 2, 3]
+```
 
-Sequence:[-1,3,4,5,2,2,2,2,3]
+Output:
 
-the subsequence is [-1,2,2,2,2,3]
+```text
+6
+```
 
-Output:6
-
+### C Program
 ```c
-#include<stdio.h>
-int max(int a,int b){
-    return a>b ? a:b;
+#include <stdio.h>
+
+int max(int a, int b) {
+    return a > b ? a : b;
 }
-int main(){
+
+int main() {
     int n;
-    scanf("%d",&n);
+    scanf("%d", &n);
+
     int arr[n];
     int dp[n];
-    for(int i=0;i<n;i++){
-        scanf("%d",&arr[i]);
-        dp[i]=1;
+
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+        dp[i] = 1;
     }
-    for(int i=1;i<n;i++){
-        for(int j=0;j<i;j++){
-            if(arr[j]<=arr[i]){
-                dp[i]=max(dp[i],dp[j]+1);
+
+    for (int i = 1; i < n; i++) {
+        for (int j = 0; j < i; j++) {
+            if (arr[j] <= arr[i]) {
+                dp[i] = max(dp[i], dp[j] + 1);
             }
         }
     }
-    int ans=dp[0];
-    for(int i=1;i<n;i++){
-        ans=max(ans,dp[i]);
-    }
-    printf("%d",ans);
 
-    
+    int ans = dp[0];
+    for (int i = 1; i < n; i++) {
+        ans = max(ans, dp[i]);
+    }
+
+    printf("%d", ans);
     return 0;
 }
 ```
+
 ![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20163403.png)
 # Competitive Programming
 
