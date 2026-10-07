@@ -11,7 +11,8 @@ Example 1:
 
 Input: 6
 Output:6
-Explanation: There are 6 ways to 6 represent number with 1 and 3
+Explanation: 
+There are 6 ways to 6 represent number with 1 and 3
          1+1+1+1+1+1
          3+3
          1+1+1+3
@@ -594,7 +595,7 @@ int main(){
     return 0;
 }
 ```
-
+![output]()
 ## 2-Majority Element
 Given an array nums of size n, return the majority element.
 
@@ -628,6 +629,7 @@ Input	Result
 2 2 1 1 1 2 2
 2
 ```c
+
 #include<stdio.h>
 int main(){
     int n;
@@ -651,7 +653,7 @@ int main(){
     return 0;
 }
 ```
-
+![output]()
 ## 3-Finding Floor Value
 Problem Statement:
 Given a sorted array and a value x, the floor of x is the largest element in array smaller than or equal to x. Write divide and conquer algorithm to find floor of x.
@@ -697,7 +699,7 @@ int main(){
 }
 
 ```
-
+![output]()
 ## 4-Two Elements sum to x
 Problem Statement:
 Given a sorted array of integers say arr[] and a number x. Write a recursive program using divide and conquer strategy to check if there exist two elements in the array whose sum = x. If there exist such two elements then return the numbers, otherwise print as “No”.
@@ -739,6 +741,7 @@ int main(){
     return 0;
 }
 ```
+![output]()
 ## 5-Implementation of Quick Sort
 Write a Program to Implement the Quick Sort Algorithm
 
@@ -796,7 +799,7 @@ int main(){
     return 0;
 }
 ```
-
+![output]()
 # DYNAMIC PROGRAMMING
 ## 1-DP-Playing with Numbers
 Playing with Numbers:
@@ -853,6 +856,8 @@ int main(){
     return 0;
 }
 ```
+
+![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20163042.png)
 ## 2-DP-Playing with chessboard
 Playing with Chessboard:
 
@@ -916,6 +921,8 @@ int main(){
     return 0;
 }
 ```
+
+![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20163149.png)
 ## 3-DP-Longest Common Subsequence
 
 Given two strings find the length of the common longest subsequence(need not be contiguous) between the two.
@@ -988,7 +995,7 @@ int main(){
     return 0;
 }
 ```
-
+![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20163256.png)
 ## 4-DP-Longest non-decreasing Subsequence
 
 Problem statement:
@@ -1038,7 +1045,7 @@ int main(){
     return 0;
 }
 ```
-
+![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20163403.png)
 
 
 
