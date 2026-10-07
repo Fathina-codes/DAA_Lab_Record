@@ -113,6 +113,7 @@ int main()
  }
 
 ```
+![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20091133.png)
 Problem 3: Finding Complexity using Counter Method
 
 Convert the following algorithm into a program and find its time complexity using counter method.
@@ -152,7 +153,7 @@ int main(){
     return 0;
 }
 ```
-
+![output]()
 Problem 4: Finding Complexity using Counter Method
 
 Convert the following algorithm into a program and find its time
