@@ -1047,6 +1047,54 @@ int main(){
 ```
 ![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20163403.png)
 
+# COMPETITIVE PROGRAMMING
 
+## 1-Finding Duplicates-O(n^2) Time Complexity,O(1) Space Complexity
+
+
+Find Duplicate in Array.
+
+Given a read only array of n integers between 1 and n, find one number that repeats.
+
+Input Format:
+
+First Line - Number of elements
+
+n Lines - n Elements
+
+Output Format:
+Element x - That is repeated
+
+For example:
+
+Input	Result
+5
+1 1 2 3 4
+1
+```c
+#include<stdio.h>
+int main(){
+    int n;
+    scanf("%d",&n);
+    int arr[n];
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+    int slow=arr[0];
+    int fast=arr[0];
+    do{
+        slow=arr[slow];
+        fast=arr[arr[fast]];
+    }while(slow!=fast);
+    slow=arr[0];
+    while(slow!=fast){
+        slow=arr[slow];
+        fast=arr[fast];
+    }
+    printf("%d",slow);
+    
+    return 0;
+}
+```
 
 
