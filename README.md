@@ -797,9 +797,247 @@ int main(){
 }
 ```
 
+# DYNAMIC PROGRAMMING
+## 1-DP-Playing with Numbers
+Playing with Numbers:
+
+
+Ram and Sita are playing with numbers by giving puzzles to each other. Now it was Ram term, so he gave Sita a positive integer ‘n’ and two numbers 1 and 3. He asked her to find the possible ways by which the number n can be represented using 1 and 3.Write any efficient algorithm to find the possible ways.
+
+Example 1:
+
+Input: 6
+Output:6
+Explanation: There are 6 ways to 6 represent number with 1 and 3
+         1+1+1+1+1+1
+         3+3
+         1+1+1+3
+         1+1+3+1
+         1+3+1+1
+         3+1+1+1
+Input Format
+First Line contains the number n
+ 
+Output Format
+
+Print: The number of possible ways ‘n’ can be represented using 1 and 3
+
+
+Sample Input
+ 
+6
+
+Sample Output
+
+6
+
+ ```c
+#include<stdio.h>
+
+long long  count(int n){
+    if(n<0) return 0;
+    if(n==0 || n==1 || n==2) return 1;
+    long long  dp[n+1];
+    dp[0]=1;
+    dp[1]=1;
+    dp[2]=1;
+    for(int i=3;i<=n;i++){
+        dp[i]=dp[i-1]+dp[i-3];
+    }
+    return dp[n];
+}
+int main(){
+    int n;
+    scanf("%d",&n);
+    printf("%lld",count(n));
+    return 0;
+}
+```
+## 2-DP-Playing with chessboard
+Playing with Chessboard:
+
+
+Ram is given with an n*n chessboard with each cell with a monetary value. Ram stands at the (0,0), that the position of the top left white rook. He is been given a task to reach the bottom right black rook position (n-1, n-1) constrained that he needs to reach the position by traveling the maximum monetary path under the condition that he can only travel one step right or one step down the board. Help ram to achieve it by providing an efficient DP algorithm.
+
+
+Example:
+Input
+3
+1 2 4
+2 3 4
+8 7 1
+Output:
+19
+
+
+Explanation:
+Totally there will be 6 paths among that the optimal is
+ Optimal path value:1+2+8+7+1=19
+
+
+Input Format
+First Line contains the integer n
+The next n lines contain the n*n chessboard values
+ 
+Output Format
+
+Print Maximum monetary value of the path
+```c
+#include<stdio.h>
+int max(int a,int b){
+    return (a>b)? a:b;
+}
+int main(){
+    int n;
+    scanf("%d",&n);
+    int arr[n][n];
+    int brr[n][n];
+    
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            scanf("%d",&arr[i][j]);
+        }
+    }
+    
+    brr[0][0]=arr[0][0];
+    for(int i = 1; i < n; i++){
+        brr[i][0] = brr[i-1][0] + arr[i][0];
+    }
+
+    for(int j=1;j<n;j++){
+        brr[0][j]=brr[0][j-1]+arr[0][j];
+    }
+    for(int i=1;i<n;i++){
+        for(int j=1;j<n;j++){
+            brr[i][j]=arr[i][j]+max(brr[i-1][j],brr[i][j-1]);
+        }
+    }
+    printf("%d\n",brr[n-1][n-1]);
+    return 0;
+}
+```
+## 3-DP-Longest Common Subsequence
+
+Given two strings find the length of the common longest subsequence(need not be contiguous) between the two.
 
 
 
+Example:
+
+ s1: ggtabe
+
+ s2: tgatasb
+
+
+
+
+s1	 	a	g	
+g
+t
+a
+b
+ 
+s2	 	
+g
+x	
+t
+x
+a
+y
+b
+
+The length is 4
+
+Solveing it using Dynamic Programming
+
+For example:
+
+Input	Result
+aab
+azb
+2
+
+```c
+#include<stdio.h>
+#include<string.h>
+int max(int a , int b){
+    return a>b?a:b;
+}
+int main(){
+    char a[1000],b[1000];
+    scanf("%s %s",a,b);
+    int n=strlen(a);
+    int m=strlen(b);
+    int dp[n+1][m+1];
+    for(int i=0;i<=n;i++){
+        dp[i][0]=0;
+    }
+    for(int i=0;i<=m;i++){
+        dp[0][i]=0;
+    }
+    for(int i=1;i<=n;i++){
+        for(int j=1;j<=m;j++){
+            if(a[i-1]==b[j-1]){
+                dp[i][j]=dp[i-1][j-1]+1;
+            }else{
+                dp[i][j]=max(dp[i-1][j],dp[i][j-1]);
+            }
+        }
+    }
+    printf("%d",dp[n][m]);
+    return 0;
+}
+```
+
+## 4-DP-Longest non-decreasing Subsequence
+
+Problem statement:
+
+Find the length of the Longest Non-decreasing Subsequence in a given Sequence.
+
+Eg:
+
+
+
+Input:9
+
+Sequence:[-1,3,4,5,2,2,2,2,3]
+
+the subsequence is [-1,2,2,2,2,3]
+
+Output:6
+
+```c
+#include<stdio.h>
+int max(int a,int b){
+    return a>b ? a:b;
+}
+int main(){
+    int n;
+    scanf("%d",&n);
+    int arr[n];
+    int dp[n];
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+        dp[i]=1;
+    }
+    for(int i=1;i<n;i++){
+        for(int j=0;j<i;j++){
+            if(arr[j]<=arr[i]){
+                dp[i]=max(dp[i],dp[j]+1);
+            }
+        }
+    }
+    int ans=dp[0];
+    for(int i=1;i<n;i++){
+        ans=max(ans,dp[i]);
+    }
+    printf("%d",ans);
+
+    
+    return 0;
+}
+```
 
 
 
