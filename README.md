@@ -58,6 +58,9 @@ int main(){
 Problem 2: Finding Complexity using Counter method
 
 Convert the following algorithm into a program and find its time complexity using the counter method.
+
+````markdown
+
 void func(int n)
 {
     if(n==1)
@@ -77,6 +80,8 @@ void func(int n)
      }
    }                      
  }
+
+````
 
 Note: No need of counter increment for declarations and scanf() and  count variable printf() statements.
 Input:
@@ -117,6 +122,7 @@ int main()
 Problem 3: Finding Complexity using Counter Method
 
 Convert the following algorithm into a program and find its time complexity using counter method.
+````markdown
  Factor(num) {
  {
     for (i = 1; i <= num;++i)
@@ -127,7 +133,7 @@ Convert the following algorithm into a program and find its time complexity usin
         }        
      } 
   }
- 
+ ````
  
 Note: No need of counter increment for declarations and scanf() and counter variable printf() statement.
 
@@ -153,12 +159,13 @@ int main(){
     return 0;
 }
 ```
-![output]()
+![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20091159.png)
+
 Problem 4: Finding Complexity using Counter Method
 
 Convert the following algorithm into a program and find its time
 complexity using counter method.
-            
+````markdown        
 void function(int n)
 {
     int c= 0;
@@ -167,6 +174,7 @@ void function(int n)
             for(int k=1; k<n; k = k * 2)
                 c++;
 }
+````
  
 Note: No need of counter increment for declarations and scanf() and  count variable printf() statements.
 
@@ -194,11 +202,12 @@ int main(){
     return 0;
 }
 ```
+![output]()
 
 Problem 5: Finding Complexity using counter method
 
 Convert the following algorithm into a program and find its time complexity using counter method.
-
+````markdown
 void reverse(int n)
 {
    int rev = 0, remainder;
@@ -211,7 +220,7 @@ void reverse(int n)
     }
 print(rev);
 }
- 
+ ````
 Note: No need of counter increment for declarations and scanf() and  count variable printf() statements.
 
 Input:
@@ -236,3 +245,4 @@ int main(){
     return 0;
 }
 ```
+![output]()
