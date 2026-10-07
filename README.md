@@ -268,33 +268,43 @@ int main() {
 
 ![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20150758.png)
 
-# GREEDY ALGORITHM
+# Greedy Algorithm
 
-## 1-G-Coin Problem
-Write a program to take value V and  we want to make change for V Rs, and we have infinite supply of each of the denominations in Indian currency, i.e., we have infinite supply of { 1, 2, 5, 10, 20, 50, 100, 500, 1000} valued coins/notes, what is the minimum number of coins and/or notes needed to make the change.
+## 1. G - Coin Problem
 
-Input Format:
+### Problem
+Write a program to take a value `V` and make change for `V` rupees using the minimum number of coins/notes. Assume an infinite supply of Indian currency denominations:
 
-Take an integer from stdin.
+`{1, 2, 5, 10, 20, 50, 100, 500, 1000}`.
 
-Output Format:
+### Input Format
+- Take an integer from standard input.
 
-print the integer which is change of the  number.
+### Output Format
+- Print the minimum number of coins/notes needed to make the change.
 
-Example Input :
+### Example
+Input:
 
+```text
 64
+```
 
 Output:
 
+```text
 4
+```
 
-Explanaton:
+### Explanation
+We need:
 
-We need a 50 Rs note and a 10 Rs note and two 2 rupee coins.
+- one `50` rupee note
+- one `10` rupee note
+- two `2` rupee coins
 
-
-```C
+### C Program
+```c
 #include <stdio.h>
 
 int main() {
@@ -314,66 +324,63 @@ int main() {
     return 0;
 }
 ```
+
 ![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20151348.png)
 
+## 2. G - Cookies Problem
 
-## 2-G-Cookies Problem
+### Problem
+Assume you are a parent who wants to give cookies to children. Each child can receive at most one cookie.
 
-Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie.
+Each child `i` has a greed factor `g[i]`, which is the minimum cookie size that makes them content. Each cookie `j` has a size `s[j]`. If `s[j] >= g[i]`, the child can be satisfied.
 
-Each child i has a greed factor g[i], which is the minimum size of a cookie that the child will be content with; and each cookie j has a size s[j]. If s[j] >= g[i], we can assign the cookie j to the child i, and the child i will be content. Your goal is to maximize the number of your content children and output the maximum number.
+Your goal is to maximize the number of satisfied children.
 
-Example 1:
+### Example 1
+Input:
 
-Input: 
-
+```text
 3
-
 1 2 3
-
 2
-
 1 1
+```
 
-Output: 
+Output:
 
+```text
 1
+```
 
-Explanation: You have 3 children and 2 cookies. The greed factors of 3 children are 1, 2, 3. 
+### Explanation
+There are 3 children with greed factors `1, 2, 3` and 2 cookies of size `1` each.
 
-And even though you have 2 cookies, since their size is both 1, you could only make the child whose greed factor is 1 content.
+Only the child with greed factor `1` can be satisfied.
 
-You need to output 1.
+### Constraints
+- `1 <= g.length <= 3 * 10^4`
+- `0 <= s.length <= 3 * 10^4`
+- `1 <= g[i], s[j] <= 2^31 - 1`
 
-Constraints:
-
-1 <= g.length <= 3 * 10^4
-
-0 <= s.length <= 3 * 10^4
-
-1 <= g[i], s[j] <= 2^31 - 1
-
+### C Program
 ```c
 #include <stdio.h>
 
 int main() {
     int n, m;
 
-    // Read greed factors size and array
     if (scanf("%d", &n) != 1) return 0;
     int g[n];
     for (int i = 0; i < n; i++) {
         scanf("%d", &g[i]);
     }
 
-    // Read cookie sizes size and array
     if (scanf("%d", &m) != 1) return 0;
     int s[m];
     for (int i = 0; i < m; i++) {
         scanf("%d", &s[i]);
     }
 
-    // Bubble sort for array g
     for (int i = 0; i < n - 1; i++) {
         for (int j = 0; j < n - i - 1; j++) {
             if (g[j] > g[j + 1]) {
@@ -384,7 +391,6 @@ int main() {
         }
     }
 
-    // Bubble sort for array s
     for (int i = 0; i < m - 1; i++) {
         for (int j = 0; j < m - i - 1; j++) {
             if (s[j] > s[j + 1]) {
@@ -395,7 +401,6 @@ int main() {
         }
     }
 
-    // Two-pointer greedy match
     int child_ptr = 0;
     int cookie_ptr = 0;
 
@@ -410,121 +415,151 @@ int main() {
     return 0;
 }
 ```
+
 ![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20151514.png)
 
-## 3-G-Burger Problem
+## 3. G - Burger Problem
 
- A person needs to eat burgers. Each burger contains a count of calorie. After eating the burger, the person needs to run a distance to burn out his calories. 
- If he has eaten i burgers with c calories each, then he has to run at least 3i * c  kilometers to burn out the calories. For  example, if he ate 3
- burgers with the count of calorie in the order: [1, 3, 2], the kilometers he needs to run are (30 * 1) + (31 * 3) + (32 * 2) = 1 + 9 + 18 = 28.
- But this is not the minimum, so need to try out other orders of consumption and choose the minimum value. Determine the minimum distance
- he needs to run. Note: He can eat burger in any order and use an efficient sorting algorithm.Apply greedy approach to solve the problem.
-Input Format
-First Line contains the number of burgers
-Second line contains calories of each burger which is n space-separate integers 
- 
-Output Format
- 
-Print: Minimum number of kilometers needed to run to burn out the calories
- 
-Sample Input
- 
+### Problem
+A person needs to eat burgers. Each burger contains a certain number of calories. After eating a burger, the person must run a distance to burn the calories.
+
+If he has eaten `i` burgers with `c` calories each, then he has to run at least `3i * c` kilometers to burn them out.
+
+For example, if he ate 3 burgers with calories in the order `[1, 3, 2]`, then the kilometers he needs to run are:
+
+- `(3 * 1) * 1 + (3 * 3) * 2 + (3 * 2) * 3 = 1 + 9 + 18 = 28`
+
+This is not the minimum; we need to try all orders and choose the minimum value.
+
+### Input Format
+- The first line contains the number of burgers.
+- The second line contains the calories of each burger as `n` space-separated integers.
+
+### Output Format
+- Print the minimum number of kilometers needed to run to burn the calories.
+
+### Sample Input
+```text
 3
 5 10 7
- 
-Sample Output
+```
+
+### Sample Output
+```text
 76
+```
 
-
+### C Program
 ```c
-#include<stdio.h>
-#include<math.h>
-#include<stdlib.h>
-int main(){
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
     int n;
-    scanf("%d",&n);
+    scanf("%d", &n);
+
     int arr[n];
-    for(int i=0;i<n;i++){
-        scanf("%d",&arr[i]);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
     }
-    for(int i=0;i<n;i++){
-        for(int j=i+1;j<n;j++){
-            if(arr[i]<arr[j]){
-                int temp=arr[i];
-                arr[i]=arr[j];
-                arr[j]=temp;
+
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (arr[i] < arr[j]) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
             }
         }
     }
-    
-    int run=0;
-    for(int i=0;i<n;i++){
-        run+=pow(n,i)*arr[i];
+
+    int run = 0;
+    for (int i = 0; i < n; i++) {
+        run += pow(n, i) * arr[i];
     }
-    printf("%d",run);
+
+    printf("%d", run);
     return 0;
 }
 ```
+
 ![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20151645.png)
 
-## 4-G-Array Sum max problem
+## 4. G - Array Sum Max Problem
 
-Given an array of N integer, we have to maximize the sum of arr[i] * i, where i is the index of the element (i = 0, 1, 2, ..., N).Write an algorithm based on Greedy technique with a Complexity O(nlogn).
+### Problem
+Given an array of `N` integers, maximize the sum of `arr[i] * i`, where `i` is the index of the element (`i = 0, 1, 2, ..., N`).
 
- Input Format:
+Write an algorithm based on the greedy technique with complexity `O(n log n)`.
 
-First line specifies the number of elements-n
+### Input Format
+- The first line specifies the number of elements `n`.
+- The next `n` lines contain the array elements.
 
-The next n lines contain the array elements.
+### Output Format
+- Print the maximum array sum.
 
-Output Format:
-
-Maximum Array Sum to be printed.
-
-Sample Input:
-
+### Sample Input
+```text
 5
-
 2 5 3 4 0
+```
 
-Sample output:
-
+### Sample Output
+```text
 40
+```
 
+### C Program
 ```c
-#include<stdio.h>
-int main(){
+#include <stdio.h>
+
+int main() {
     int n;
-    scanf("%d",&n);
+    scanf("%d", &n);
+
     int a[n];
-    int s=0;
-    for(int i=0;i<n;i++){
-        scanf("%d",&a[i]);
+    int s = 0;
+
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
     }
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(a[i]<a[j]){
-                int temp=a[i];
-                a[i]=a[j];
-                a[j]=temp;
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (a[i] < a[j]) {
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
             }
         }
     }
-    for(int i=0;i<n;i++){
-        s+=a[i]*i;
+
+    for (int i = 0; i < n; i++) {
+        s += a[i] * i;
     }
-    printf("%d",s);
+
+    printf("%d", s);
     return 0;
 }
 ```
+
 ![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20153520.png)
 
-## 5-G-Product of Array elements-Minimum
-Given two arrays array_One[] and array_Two[] of same size N. We need to first rearrange the arrays such that the sum of the product of pairs( 1 element from each) is minimum. That is SUM (A[i] * B[i]) for all i is minimum.
+## 5. G - Product of Array Elements - Minimum
 
-For example:
+### Problem
+Given two arrays, `array_One[]` and `array_Two[]`, of the same size `N`, rearrange the arrays so that the sum of products of corresponding pairs is minimum.
 
-Input	Result
+That is, minimize:
+
+`SUM(A[i] * B[i])` for all `i`.
+
+### Example
+Input:
+
+```text
 3
 1
 2
@@ -532,50 +567,67 @@ Input	Result
 4
 5
 6
-28
+```
 
+Result:
+
+```text
+28
+```
+
+### C Program
 ```c
-#include<stdio.h>
-int main(){
+#include <stdio.h>
+
+int main() {
     int n;
-    scanf("%d",&n);
+    scanf("%d", &n);
+
     int a[n];
     int b[n];
-    for(int i=0;i<n;i++){
-        scanf("%d",&a[i]);
+
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
     }
-    for(int i=0;i<n;i++){
-        scanf("%d",&b[i]);
+
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &b[i]);
     }
-    for(int i=0;i<n;i++){
-        for(int j=i+1;j<n;j++){
-            if(a[i]>a[j]){
-                int temp=a[i];
-                a[i]=a[j];
-                a[j]=temp;
+
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (a[i] > a[j]) {
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
             }
         }
     }
-    for(int i=0;i<n;i++){
-        for(int j=i+1;j<n;j++){
-            if(b[i]<b[j]){
-                int temp=b[i];
-                b[i]=b[j];
-                b[j]=temp;
+
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (b[i] < b[j]) {
+                int temp = b[i];
+                b[i] = b[j];
+                b[j] = temp;
             }
         }
     }
-    int s=0;
-    for(int i=0;i<n;i++){
-       s+=a[i]*b[i];
+
+    int s = 0;
+    for (int i = 0; i < n; i++) {
+        s += a[i] * b[i];
     }
-    printf("%d",s);
+
+    printf("%d", s);
     return 0;
 }
 ```
+
 ![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20153715.png)
 
 # DIVIDE AND CONQUER
+
 ##1-Number of Zeros in a Given Array
 
 Problem Statement
