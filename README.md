@@ -1046,380 +1046,411 @@ int main(){
 }
 ```
 ![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20163403.png)
+# Competitive Programming
 
-# COMPETITIVE PROGRAMMING
+## 1. Finding Duplicates (O(n^2) Time, O(1) Space)
 
-## 1-Finding Duplicates-O(n^2) Time Complexity,O(1) Space Complexity
+### Problem
+Find duplicate in array.
 
+Given a read-only array of `n` integers between `1` and `n`, find one number that repeats.
 
-Find Duplicate in Array.
+### Input Format
+- The first line contains the number of elements.
+- The next `n` lines contain the array elements.
 
-Given a read only array of n integers between 1 and n, find one number that repeats.
+### Output Format
+- Print the repeated element `x`.
 
-Input Format:
-
-First Line - Number of elements
-
-n Lines - n Elements
-
-Output Format:
-Element x - That is repeated
-
-For example:
-
-| Input | Result |
-| :--- | :--- |
-| 5<br>1 1 2 3 4 | 1 |
-```c
-#include<stdio.h>
-int main(){
-    int n;
-    scanf("%d",&n);
-    int arr[n];
-    for(int i=0;i<n;i++){
-        scanf("%d",&arr[i]);
-    }
-    int slow=arr[0];
-    int fast=arr[0];
-    do{
-        slow=arr[slow];
-        fast=arr[arr[fast]];
-    }while(slow!=fast);
-    slow=arr[0];
-    while(slow!=fast){
-        slow=arr[slow];
-        fast=arr[fast];
-    }
-    printf("%d",slow);
-    
-    return 0;
-}
-```
-## 2-Finding Duplicates-O(n) Time Complexity,O(1) Space Complexity
-
-Find Duplicate in Array.
-
-Given a read only array of n integers between 1 and n, find one number that repeats.
-
-Input Format:
-
-First Line - Number of elements
-
-n Lines - n Elements
-
-Output Format:
-Element x - That is repeated
-
-For example:
-
+### Example
 | Input | Result |
 | :--- | :--- |
 | 5<br>1 1 2 3 4 | 1 |
 
+### C Program
 ```c
-#include<stdio.h>
-#include<stdlib.h>
-int main(){
+#include <stdio.h>
+
+int main() {
     int n;
-    scanf("%d",&n);
+    scanf("%d", &n);
+
     int arr[n];
-    for(int i=0;i<n;i++){
-        scanf("%d",&arr[i]);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
     }
-    int slow=arr[0];
-    int fast=arr[0];
-    do{
-        slow=arr[slow];
-        fast=arr[arr[fast]];
-    }while(slow!=fast);
-    slow=arr[0];
-    while(slow!=fast){
-        slow=arr[slow];
-        fast=arr[fast];
+
+    int slow = arr[0];
+    int fast = arr[0];
+
+    do {
+        slow = arr[slow];
+        fast = arr[arr[fast]];
+    } while (slow != fast);
+
+    slow = arr[0];
+    while (slow != fast) {
+        slow = arr[slow];
+        fast = arr[fast];
     }
-    printf("%d",slow);
+
+    printf("%d", slow);
     return 0;
 }
 ```
-## 3-Print Intersection of 2 sorted arrays-O(m*n)Time Complexity,O(1) Space Complexity
+
+![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20204926.png)
+
+## 2. Finding Duplicates (O(n) Time, O(1) Space)
+
+### Problem
+Find duplicate in array.
+
+Given a read-only array of `n` integers between `1` and `n`, find one number that repeats.
+
+### Input Format
+- The first line contains the number of elements.
+- The next `n` lines contain the array elements.
+
+### Output Format
+- Print the repeated element `x`.
+
+### Example
+| Input | Result |
+| :--- | :--- |
+| 5<br>1 1 2 3 4 | 1 |
+
+### C Program
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    int arr[n];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    int slow = arr[0];
+    int fast = arr[0];
+
+    do {
+        slow = arr[slow];
+        fast = arr[arr[fast]];
+    } while (slow != fast);
+
+    slow = arr[0];
+    while (slow != fast) {
+        slow = arr[slow];
+        fast = arr[fast];
+    }
+
+    printf("%d", slow);
+    return 0;
+}
+```
+
+![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20204926.png)
+
+## 3. Print Intersection of Two Sorted Arrays (O(m*n) Time, O(1) Space)
+
+### Problem
 Find the intersection of two sorted arrays.
 
-OR in other words,
+In other words, given two sorted arrays, find all elements that occur in both arrays.
 
-Given 2 sorted arrays, find all the elements which occur in both the arrays. 
+### Input Format
+- The first line contains `T`, the number of test cases.
+- For each test case:
+  1. The first line contains `N1`, followed by `N1` integers of the first array.
+  2. The second line contains `N2`, followed by `N2` integers of the second array.
 
-Input Format
+### Output Format
+- Print the intersection of the arrays in a single line.
 
-·       The first line contains T, the number of test cases. Following T lines contain:
-
-1.     Line 1 contains N1, followed by N1 integers of the first array
-
-2.     Line 2 contains N2, followed by N2 integers of the second array
-
-Output Format
-
-The intersection of the arrays in a single line
-
-Example
-
+### Example
 Input:
 
+```text
 1
-
 3 10 17 57
-
 6 2 7 10 15 57 246
+```
 
 Output:
 
+```text
 10 57
+```
 
 Input:
 
+```text
 1
-
 6 1 2 3 4 5 6
-
 2 1 6
+```
 
 Output:
 
+```text
 1 6
+```
 
-
-For example:
-
+### Example Table
 | Input | Result |
 | :--- | :--- |
 | 1<br>3 10 17 57<br>6<br>2 7 10 15 57 246 | 10 57 |
+
+### C Program
 ```c
-#include<stdio.h>
-int main(){
+#include <stdio.h>
+
+int main() {
     int t;
-    scanf("%d",&t);
-    while (t--){
-    int n,m;
-    scanf("%d",&n);
-    int arr[n];
-    for(int i=0;i<n;i++){
-        scanf("%d",&arr[i]);
-    }
-    scanf("%d",&m);
-    int brr[m];
-    for(int i=0;i<m;i++){
-        scanf("%d",&brr[i]);
-    }
-    int f=1;
-    for(int i=0;i<n;i++){
-        for(int j=0;j<m;j++){
-            if(arr[i]==brr[j]){
-                if(!f){
-                    printf(" ");
+    scanf("%d", &t);
+
+    while (t--) {
+        int n, m;
+        scanf("%d", &n);
+
+        int arr[n];
+        for (int i = 0; i < n; i++) {
+            scanf("%d", &arr[i]);
+        }
+
+        scanf("%d", &m);
+        int brr[m];
+        for (int i = 0; i < m; i++) {
+            scanf("%d", &brr[i]);
+        }
+
+        int f = 1;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (arr[i] == brr[j]) {
+                    if (!f) {
+                        printf(" ");
+                    }
+                    printf("%d", arr[i]);
+                    f = 0;
+                    break;
                 }
-                printf("%d",arr[i]);
-                f=0;
-                break;
             }
         }
+
+        printf("\n");
     }
-    printf("\n");
-    
-    }
-    
+
     return 0;
 }
 ```
-## 4-Print Intersection of 2 sorted arrays-O(m*n)Time Complexity,O(1) Space Complexity
+
+![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20205800.png)
+
+## 4. Print Intersection of Two Sorted Arrays (O(m*n) Time, O(1) Space)
+
+### Problem
 Find the intersection of two sorted arrays.
 
-OR in other words,
+In other words, given two sorted arrays, find all elements that occur in both arrays.
 
-Given 2 sorted arrays, find all the elements which occur in both the arrays. 
+### Input Format
+- The first line contains `T`, the number of test cases.
+- For each test case:
+  1. The first line contains `N1`, followed by `N1` integers of the first array.
+  2. The second line contains `N2`, followed by `N2` integers of the second array.
 
-Input Format
+### Output Format
+- Print the intersection of the arrays in a single line.
 
-·       The first line contains T, the number of test cases. Following T lines contain:
-
-1.     Line 1 contains N1, followed by N1 integers of the first array
-
-2.     Line 2 contains N2, followed by N2 integers of the second array
-
-Output Format
-
-The intersection of the arrays in a single line
-
-Example
-
+### Example
 Input:
 
+```text
 1
-
 3 10 17 57
-
 6 2 7 10 15 57 246
+```
 
 Output:
 
+```text
 10 57
+```
 
 Input:
 
+```text
 1
-
 6 1 2 3 4 5 6
-
 2 1 6
+```
 
 Output:
 
+```text
 1 6
+```
 
-
-For example:
-
+### Example Table
 | Input | Result |
 | :--- | :--- |
 | 1<br>3 10 17 57<br>6<br>2 7 10 15 57 246 | 10 57 |
+
+### C Program
 ```c
-#include<stdio.h>
-int main(){
+#include <stdio.h>
+
+int main() {
     int t;
-    scanf("%d",&t);
-    while (t--){
-    int n,m;
-    scanf("%d",&n);
-    int arr[n];
-    for(int i=0;i<n;i++){
-        scanf("%d",&arr[i]);
-    }
-    scanf("%d",&m);
-    int brr[m];
-    for(int i=0;i<m;i++){
-        scanf("%d",&brr[i]);
-    }
-    int f=1;
-    for(int i=0;i<n;i++){
-        for(int j=0;j<m;j++){
-            if(arr[i]==brr[j]){
-                if(!f){
-                    printf(" ");
+    scanf("%d", &t);
+
+    while (t--) {
+        int n, m;
+        scanf("%d", &n);
+
+        int arr[n];
+        for (int i = 0; i < n; i++) {
+            scanf("%d", &arr[i]);
+        }
+
+        scanf("%d", &m);
+        int brr[m];
+        for (int i = 0; i < m; i++) {
+            scanf("%d", &brr[i]);
+        }
+
+        int f = 1;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (arr[i] == brr[j]) {
+                    if (!f) {
+                        printf(" ");
+                    }
+                    printf("%d", arr[i]);
+                    f = 0;
+                    break;
                 }
-                printf("%d",arr[i]);
-                f=0;
-                break;
             }
         }
+
+        printf("\n");
     }
-    printf("\n");
-    
-    }
-    
+
     return 0;
 }
 ```
 
-## 5-Pair with Difference-O(n^2)Time Complexity,O(1) Space Complexity
-Given an array A of sorted integers and another non negative integer k, find if there exists 2 indices i and j such that A[j] - A[i] = k, i != j.
+![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20205800.png)
 
-Input Format:
+## 5. Pair with Difference (O(n^2) Time, O(1) Space)
 
-First Line n - Number of elements in an array
+### Problem
+Given an array `A` of sorted integers and another non-negative integer `k`, find whether there exist two indices `i` and `j` such that:
 
-Next n Lines - N elements in the array
+`A[j] - A[i] = k`, where `i != j`.
 
-k - Non - Negative Integer
+### Input Format
+- The first line contains `n`, the number of elements in the array.
+- The next `n` lines contain the array elements.
+- The next line contains `k`, a non-negative integer.
 
-Output Format:
-1 - If pair exists
+### Output Format
+- Print `1` if the pair exists.
+- Print `0` if no pair exists.
 
-0 - If no pair exists
+### Explanation
+YES, because `5 - 1 = 4`.
 
-Explanation for the given Sample Testcase:
-
-YES as 5 - 1 = 4
-
-So Return 1.
-
-
-
-
-For example:
-
+### Example
 | Input | Result |
 | :--- | :--- |
 | 3<br>1 3 5<br>4 | 1 |
+
+### C Program
 ```c
-#include<stdio.h>
-int main(){
-    int n,t;
-    scanf("%d",&n);
+#include <stdio.h>
+
+int main() {
+    int n, t;
+    scanf("%d", &n);
+
     int arr[n];
-    for(int i=0;i<n;i++){
-        scanf("%d",&arr[i]);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
     }
-    scanf("%d",&t);
-    for(int i=0;i<n;i++){
-        for(int j=i+1;j<n;j++){
-            if(arr[j]-arr[i]==t){
+
+    scanf("%d", &t);
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] - arr[i] == t) {
                 printf("1");
                 return 0;
             }
         }
     }
+
     printf("0");
     return 0;
 }
 ```
-## 6-Pair with Difference-O(n^2)Time Complexity,O(1) Space Complexity
-Given an array A of sorted integers and another non negative integer k, find if there exists 2 indices i and j such that A[j] - A[i] = k, i != j.
 
-Input Format:
+![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20210047.png)
 
-First Line n - Number of elements in an array
+## 6. Pair with Difference (O(n^2) Time, O(1) Space)
 
-Next n Lines - N elements in the array
+### Problem
+Given an array `A` of sorted integers and another non-negative integer `k`, find whether there exist two indices `i` and `j` such that:
 
-k - Non - Negative Integer
+`A[j] - A[i] = k`, where `i != j`.
 
-Output Format:
-1 - If pair exists
+### Input Format
+- The first line contains `n`, the number of elements in the array.
+- The next `n` lines contain the array elements.
+- The next line contains `k`, a non-negative integer.
 
-0 - If no pair exists
+### Output Format
+- Print `1` if the pair exists.
+- Print `0` if no pair exists.
 
-Explanation for the given Sample Testcase:
+### Explanation
+YES, because `5 - 1 = 4`.
 
-YES as 5 - 1 = 4
-
-So Return 1.
-
-
-
-
-For example:
-
+### Example
 | Input | Result |
 | :--- | :--- |
 | 3<br>1 3 5<br>4 | 1 |
+
+### C Program
 ```c
-#include<stdio.h>
-int main(){
-    int n,t;
-    scanf("%d",&n);
+#include <stdio.h>
+
+int main() {
+    int n, t;
+    scanf("%d", &n);
+
     int arr[n];
-    for(int i=0;i<n;i++){
-        scanf("%d",&arr[i]);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
     }
-    scanf("%d",&t);
-    for(int i=0;i<n;i++){
-        for(int j=i+1;j<n;j++){
-            if(arr[j]-arr[i]==t){
+
+    scanf("%d", &t);
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] - arr[i] == t) {
                 printf("1");
                 return 0;
             }
         }
     }
+
     printf("0");
     return 0;
 }
 ```
 
+![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20210047.png)
