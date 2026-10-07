@@ -1,6 +1,6 @@
-FINDING TIME COMPLEXITY OF ALGORITHM
+# **FINDING TIME COMPLEXITY OF ALGORITHM**
 
-Problem 1: Finding Complexity using counter method
+## Problem 1: Finding Complexity using counter method
 
 Playing with Numbers:
 
@@ -55,7 +55,7 @@ int main(){
 ```
 ![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20085937.png)
 
-Problem 2: Finding Complexity using Counter method
+## Problem 2: Finding Complexity using Counter method
 
 Convert the following algorithm into a program and find its time complexity using the counter method.
 
@@ -119,7 +119,8 @@ int main()
 
 ```
 ![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20091133.png)
-Problem 3: Finding Complexity using Counter Method
+
+## Problem 3: Finding Complexity using Counter Method
 
 Convert the following algorithm into a program and find its time complexity using counter method.
 ````markdown
@@ -161,7 +162,7 @@ int main(){
 ```
 ![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20091159.png)
 
-Problem 4: Finding Complexity using Counter Method
+## Problem 4: Finding Complexity using Counter Method
 
 Convert the following algorithm into a program and find its time
 complexity using counter method.
@@ -205,7 +206,7 @@ int main(){
 ![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20150617.png)
 
 
-Problem 5: Finding Complexity using counter method
+## Problem 5: Finding Complexity using counter method
 
 
 Convert the following algorithm into a program and find its time complexity using counter method.
@@ -249,9 +250,9 @@ int main(){
 ```
 ![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20150758.png)
 
-GREEDY ALGORITHM
+# GREEDY ALGORITHM
 
-1-G-Coin Problem
+## 1-G-Coin Problem
 Write a program to take value V and  we want to make change for V Rs, and we have infinite supply of each of the denominations in Indian currency, i.e., we have infinite supply of { 1, 2, 5, 10, 20, 50, 100, 500, 1000} valued coins/notes, what is the minimum number of coins and/or notes needed to make the change.
 
 Input Format:
@@ -298,7 +299,7 @@ int main() {
 ![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20151348.png)
 
 
-2-G-Cookies Problem
+## 2-G-Cookies Problem
 
 Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie.
 
@@ -393,7 +394,7 @@ int main() {
 ```
 ![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20151514.png)
 
-3-G-Burger Problem
+## 3-G-Burger Problem
 
  A person needs to eat burgers. Each burger contains a count of calorie. After eating the burger, the person needs to run a distance to burn out his calories. 
  If he has eaten i burgers with c calories each, then he has to run at least 3i * c  kilometers to burn out the calories. For  example, if he ate 3
@@ -448,7 +449,7 @@ int main(){
 ```
 ![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20151645.png)
 
-4-G-Array Sum max problem
+## 4-G-Array Sum max problem
 
 Given an array of N integer, we have to maximize the sum of arr[i] * i, where i is the index of the element (i = 0, 1, 2, ..., N).Write an algorithm based on Greedy technique with a Complexity O(nlogn).
 
@@ -500,7 +501,7 @@ int main(){
 ```
 ![output](https://github.com/Fathina-codes/DAA_Lab_Record/blob/main/result/Screenshot%202026-10-07%20153520.png)
 
-5-G-Product of Array elements-Minimum
+## 5-G-Product of Array elements-Minimum
 Given two arrays array_One[] and array_Two[] of same size N. We need to first rearrange the arrays such that the sum of the product of pairs( 1 element from each) is minimum. That is SUM (A[i] * B[i]) for all i is minimum.
 
 For example:
